@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello World</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: grid;
+      place-items: center;
+      font-family: system-ui, sans-serif;
+      color: #222;
+      background: #fff;
+    }
+
+    main {
+      position: relative;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 8vw, 3rem);
+      line-height: 1.2;
+    }
+
+    button {
+      position: absolute;
+      top: calc(100% + 24px);
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 10px 20px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background: #f5f5f5;
+      color: inherit;
+      font: inherit;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #e8e8e8;
+    }
+
+    button:focus-visible {
+      outline: 2px solid #2563eb;
+      outline-offset: 4px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1 id="greeting" aria-live="polite">Hello World</h1>
+    <button id="toggle" type="button" lang="zh-CN">切换语言</button>
+  </main>
+  <script>
+    const greeting = document.getElementById('greeting');
+    const toggle = document.getElementById('toggle');
+    let isChinese = false;
+
+    toggle.addEventListener('click', () => {
+      isChinese = !isChinese;
+      greeting.textContent = isChinese ? '你好世界' : 'Hello World';
+      document.documentElement.lang = isChinese ? 'zh-CN' : 'en';
+    });
+  </script>
+</body>
+</html>
